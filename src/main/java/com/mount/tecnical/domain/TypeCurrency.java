@@ -8,22 +8,16 @@ import lombok.Data;
 
 @Data
 @Entity
-public class ChangeAmount{
+public class TypeCurrency {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    //Monto
-    private Double amount;
+    //ref. nombre del tipo - prefijo
+    private String typeCurr;
 
-    //moneda origen
-    private String originalCurrency;
-
-    //moneda destino
-    private String targetCurrency;
-
-    //devolver el “monto
-    private Double convertedAmount;
+    //ref. monto del tipo
+    private Double mountCurr;
 
 }

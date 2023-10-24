@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.mount.tecnical.domain.ChangeAmount;
 import com.mount.tecnical.service.ChangeAmountService;
 
-import reactor.core.publisher.Mono;
-
 @RestController
 @RequestMapping("/tecnical")
 public class ChangeAmountController {
@@ -19,9 +17,9 @@ public class ChangeAmountController {
     ChangeAmountService changeAmountService;
 
     @PostMapping("/aplicar")
-    public Mono<Double> aplicarTipoCambio(@RequestBody ChangeAmount request) {
+    public Double aplicarTipoCambio(@RequestBody ChangeAmount request) {
         return changeAmountService.changeAmount(request.getAmount(), request.getOriginalCurrency(), request.getTargetCurrency());
     }
 
-
 }
+
