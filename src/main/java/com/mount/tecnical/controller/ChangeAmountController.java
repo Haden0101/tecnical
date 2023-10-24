@@ -20,7 +20,6 @@ public class ChangeAmountController {
 
     @PostMapping("/aplicar")
     public Mono<Double> aplicarTipoCambio(@RequestBody ChangeAmount request) {
-        // Aquí request contiene los valores de amount, originalCurrency y targetCurrency
         return changeAmountService.changeAmount(request.getAmount(), request.getOriginalCurrency(), request.getTargetCurrency());
     }
 

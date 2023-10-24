@@ -5,16 +5,15 @@ import org.springframework.data.repository.reactive.ReactiveCrudRepository;
 import org.springframework.stereotype.Repository;
 
 import com.mount.tecnical.domain.ChangeAmount;
-import com.mount.tecnical.dto.ChangeAmountRequestDTO;
 
 import reactor.core.publisher.Mono;
 
 @Repository
 public interface ChangeAmountRepository extends ReactiveCrudRepository<ChangeAmount, Long>{
     
-    @Query("SELECT * FROM change_amount_request_dto " +
+    @Query("SELECT * FROM change_amount " +
            "WHERE original_currency = :originalCurrency " +
            "AND target_currency = :targetCurrency")
-    Mono<ChangeAmountRequestDTO> findByOriginalCurrencyAndTargetCurrency(String originalCurrency, String targetCurrency);
+    Mono<ChangeAmount> findByOriginalCurrencyAndTargetCurrency(String originalCurrency, String targetCurrency);
 
 }
